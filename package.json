@@ -1,14 +1,33 @@
 {
-  "name": "pass",
-  "version": "0.0.0",
-  "description": "",
+  "name": "through2-pass",
+  "version": "0.0.1",
+  "description": "For passing streams through writables",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap test.js"
   },
-  "author": "Luke Burns <lukemburns@gmail.com> (http://lukeburns.com/)",
-  "license": "ISC",
+  "dependencies": {
+    "through2": "^0.5.1"
+  },
   "devDependencies": {
     "tap": "^0.4.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lukeburns/pass"
+  },
+  "keywords": [
+    "streams",
+    "through2",
+    "pass",
+    "passthrough"
+  ],
+  "author": {
+    "name": "Luke Burns",
+    "email": "lukemburns@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukeburns/pass/issues"
   }
 }

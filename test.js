@@ -1,7 +1,6 @@
 var test = require("tap").test,
 		pass = require('./'),
-		fs = require('fs'),
-		handle = require('handle');
+		fs = require('fs');
 
 test("pass through writable", function (t) {
 	t.plan(1);
@@ -13,3 +12,16 @@ test("pass through writable", function (t) {
 		fs.unlinkSync('test.md');
 	}));
 });
+
+function handle(callback) {
+	var all = [];
+	var stream = require('through2')();
+	stream
+	.on('data', function(data) { 
+		all.push(data); 
+	})
+	.on('end', function() { 
+		callback(all.join('').toString());
+	});
+	return stream;
+}
