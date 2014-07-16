@@ -1,15 +1,12 @@
-var PassThrough = require('stream').PassThrough
+var through = require('through2')
 
 module.exports = pass;
 
 function pass(writable) {
-	var stream = new PassThrough;
-	stream
-	.on('data', function (data) {
-		writable.write(data);
-	})
-	.on('end', function () {
-		writable.end();
+	var stream = through(function (chunk, enc, callback) {
+		writable.write(chunk, enc);
+		this.push(chunk, enc);
+		callback();
 	});
 	return stream;
 }

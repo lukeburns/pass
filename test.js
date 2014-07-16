@@ -10,6 +10,6 @@ test("pass through writable", function (t) {
 	.pipe(handle(function(data) {
 		var contents = fs.readFileSync('test.md', 'utf8');
 		t.equal(contents, data);
-		fs.unlinkSync('test.md')
+		fs.unlinkSync('test.md');
 	}));
 });
